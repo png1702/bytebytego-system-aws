@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "fanout-services.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "fanout-services.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "fanout-services.name" . }}
+    spec:
+      containers:
+        - name: fanout
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 4000
+          env:
+            {{- toYaml .Values.env | nindent 12 }}

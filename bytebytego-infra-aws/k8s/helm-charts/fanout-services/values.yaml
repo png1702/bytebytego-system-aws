@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: hashicorp/http-echo
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 4000
+
+env:
+  - name: REDIS_HOST
+    value:bytebytego-db.cgrz9d8b3kqp.us-east-1.rds.amazonaws.com
+   - name: REDIS_PORT
+    value: "6379"
+  - name: PAYMENT_PROVIDER
+    value: stripe
+  - name: STRIPE_API_KEY
+    valueFrom:
+      secretKeyRef:
+        name: fanout-secrets
+        key: stripe-key

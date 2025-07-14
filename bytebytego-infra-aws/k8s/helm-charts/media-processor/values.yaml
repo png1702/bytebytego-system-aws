@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: python
+  tag: 3.10-slim
+  
+
+service:
+  type: ClusterIP
+  port: 5000
+
+env:
+  - name: REDIS_HOST
+    value: bytebytego-db.cgrz9d8b3kqp.us-east-1.rds.amazonaws.com
+  - name: REDIS_PORT
+    value: "6379"
+  - name: S3_BUCKET
+    value: bytebytego-app-media
+  - name: AWS_REGION
+    value: us-east-1

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: media-processor
+description: Service for media file processing
+type: application
+version: 0.1.0
+appVersion: "1.0"
