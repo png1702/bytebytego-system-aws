@@ -70,9 +70,9 @@ Redis credentials
 
 ## Accessing the App
 
-- Frontend: http://<ALB-DNS>/
-- Backend API: http://<ALB-DNS>/api
-- Optional: https://<API-GW>.execute-api.us-east-1.amazonaws.com/prod
+- Frontend: http://ALB-DNS/
+- Backend API: http://ALB-DNS/api
+- Optional: https://API-GW.execute-api.us-east-1.amazonaws.com/prod
 
 
 
