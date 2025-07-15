@@ -74,7 +74,78 @@ Redis credentials
 - Backend API: http://ALB-DNS/api
 - Optional: https://API-GW.execute-api.us-east-1.amazonaws.com/prod
 
+1. Define Functional & Non-Functional Requirements First
+Functional Requirements:
 
+- Request-response system over HTTP/S.
+
+- Upload and stream media (video, audio, etc.).
+
+- Handle real-time chat/stream.
+
+- Notification, analytics, search, payment, recommendation, etc.
+
+Non-Functional Requirements:
+
+- High Availability (HA)
+
+- Low Latency
+
+- Horizontal Scalability
+
+- Security
+  
+2. Apply Architecture Principles & Patterns
+   
+- Microservices: Separated components like authentication, ID generation, message processing.
+
+- Event-driven: Message queues and pub/sub systems.
+
+- Separation of Concerns: API Gateway, Frontend, Backend, CDN, Object Storage, etc.
+
+- Caching: RAM + Distributed Cache for performance boost.
+
+- Load Balancing: Across frontends and backends.
+
+3. Include Capacity Planning & Sizing (Optional)
+
+- Horizontal scaling: Through load balancers, CDN, microservices.
+
+- Partitioning : At the database level.
+
+- Auto-scaling: Backend workers, message processors.
+
+- Monitoring & Metrics: Captured at API Gateway and services.
+
+4. Structure with Clear Architecture Layers
+
+
+- Client Layer: End-user device requesting via browser/app.
+
+- DNS & CDN Layer: Resolves domain, serves static content globally.
+
+- API Gateway Layer: Validates, throttles, routes requests.
+
+- Frontend Layer: Handles UI logic, real-time connections.
+
+- Backend Layer: Core business logic (auth, metadata, streaming).
+
+- Storage Layer: Databases, caches, object storage.
+
+- Async Layer: Queues, workers, and pub/sub for non-blocking operations.
+
+- Fan-out Services: Notifications, analytics, payments, etc.
+
+5. End with Operational Excellence
+- Observability: Logs, metrics, alerts for all services.
+
+- Retries/Timeouts: Message queue and worker design.
+
+- Security: TLS, AuthN/Z, token validation, input validation.
+
+- Data Integrity: Checksums, DB replicas, audit trail.
+
+- Resilience: distributed locking, fallback strategies.
 
 
 
